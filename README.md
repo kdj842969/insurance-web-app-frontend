@@ -11,15 +11,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Backend code is available here: [Github repo](https://github.com/kdj842969/insurance-web-app-backend)
 
 ## Tech stack
-*	Designed and implement frontend using Angular 7, HTML, CSS, JavaScript, TypeScript.
-*	Built single page application (SPA) using Angular router to collect user data, also utilize Angular guard service to protect and secure routes. Introduced lazy loading feature to increase performance.
-*	Introduced components, services, pipes, and directives to increase reusability. For example, created pipe to display policy information based on user preference. Used service to achieve communication between components.
-*	Utilized Reactive Form for input validation and form control.
-*	Used Observable to wrap http response from back-end.
-*	Handled user credential data by using RXJS operators, subjects, map, and switchMap.
-*	Developed charts using ngx-chart to analyze sales data including line chart, pie chart, bar chart, and dynamic chart.
-*	Applied Flex-layout and Bootstrap grid system to build a responsive web application, designed UI/ UX using Sass/Scss, and Bootsrtap.
-*	Utilized Test-Driven-Development using Junit for backend, Jasmine and Karma for frontend, Selenium for integration test.
+*	Designed and implement frontend using **Angular 7, HTML, CSS, JavaScript, TypeScript**.
+*	Built single page application (SPA) using Angular router to collect user data, also utilize **Angular guard service** to protect and secure routes. Introduced lazy loading feature to increase performance.
+*	Introduced **components, services, pipes, and directives** to increase reusability. For example, created pipe to display policy information based on user preference. Used service to achieve communication between components.
+*	Utilized **Reactive Form** for input validation and form control.
+*	Used **Observable** to wrap http response from back-end.
+*	Handled user credential data by using **RXJS operators, subjects, map, and switchMap**.
+*	Developed charts using **ngx-chart** to analyze sales data including line chart, pie chart, bar chart, and dynamic chart.
+*	Applied **Flex-layout and Bootstrap grid system** to build a responsive web application, designed UI/ UX using **Sass/Scss, and Bootsrtap**.
+*	Utilized **Test-Driven-Development** using **Junit** for backend, **Jasmine and Karma** for frontend, **Selenium** for integration test.
 
 
 ## Development server
