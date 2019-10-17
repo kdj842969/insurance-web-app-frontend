@@ -1,6 +1,14 @@
-# MsiFinalClient
+# Insurance Web App Frontend
+
+Frontend code for a web-based insurance system using Java and Spring
+
+live demo hosting on AWS: http://msi-final-jjy.com.s3-website.us-east-2.amazonaws.com/login
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+
+## Backend code
+
+Backend code is available here: [Github repo](https://github.com/kdj842969/insurance-web-app-backend)
 
 ## Development server
 
