@@ -1,0 +1,29 @@
+<main class="container" style="margin-top: 10px;">
+  <mat-card fxFlex="100%" fxFlex.gt-xs="60%" fxFlexOffset.gt-sm="20%">
+    <mat-card-title>Login</mat-card-title>
+    <!-- template form-->
+    <form ngForm fxLayout="column" #f="ngForm" (ngSubmit)="submit(f.value)">
+      <mat-form-field>
+        <input matInput type="text" name="username" placeholder="Username" ngModel required>
+        <mat-error>Username can't be empty</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" name="password" ngModel minlength="6">
+        <mat-error>Character can't be less than 6 characters</mat-error>
+      </mat-form-field>
+      <!--<mat-error>{{msg}}</mat-error>-->
+
+      <!--<p>{{f.value | json}}</p>-->
+      <div>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+        <!--<a mat-button color="accent" routerLink="/register">Register</a>-->
+      </div>
+
+     <!-- <div ngModelGroup="address">
+        <input type="text" ngModel name="city" placeholder="city">
+        <input type="text" ngModel name="state" placeholder="state">
+      </div>-->
+    </form>
+  </mat-card>
+
+</main>

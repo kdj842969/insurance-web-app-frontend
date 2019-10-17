@@ -1,0 +1,66 @@
+<div class="container">
+<h2>Application & Quotes</h2>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div>
+      <button mat-raised-button color="primary" (click)="addApplication()">Create New Application</button>
+    </div>
+     <div>
+      <mat-form-field>
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+     </div>
+  </div>
+
+  <!--<div  fxLayoutAlign="end">
+  <button mat-raised-button color="primary">Create New Application</button>
+  </div>
+<div fxLayout fxLayoutAlign="end">
+  <mat-form-field fxFlex="25%">
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>-->
+
+<div class="mat-elevation-z8">
+
+<table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+  <ng-container matColumnDef="client">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Client Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.client.firstName}} {{element.client.lastName}} </td>
+  </ng-container>
+
+ <!-- <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Insurance Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>-->
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.applicationStatus}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+        <mat-icon class="mat-18">system_update</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+        <mat-icon class="mat-18">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>
+</div>

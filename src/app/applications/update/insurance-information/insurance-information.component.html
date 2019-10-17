@@ -1,0 +1,52 @@
+<form [formGroup]="insuranceInformationForm" (ngSubmit)="onSubmit">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>Insurance Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline" required>
+        <mat-label>VIN Number</mat-label>
+        <input matInput formControlName="vinNumber">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Garage Zip Code</mat-label>
+        <input matInput formControlName="zip">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Primary Use of Vehicle</mat-label>
+        <mat-select placeholder="Use of Vehicle" formControlName="use">
+          <mat-option value="commuting">Commuting</mat-option>
+          <mat-option value="business">Business</mat-option>
+          <mat-option value="pleasure">Pleasure</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>date_range</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Makes</mat-label>
+        <input matInput formControlName="makes">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Models</mat-label>
+        <input matInput formControlName="models">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" required>
+        <mat-label>Body Styles</mat-label>
+        <input matInput formControlName="bodyStyles">
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <div>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>
+

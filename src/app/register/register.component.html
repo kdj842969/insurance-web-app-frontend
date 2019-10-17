@@ -1,0 +1,32 @@
+<div fxLayout fxLayoutAlign="center" style="margin: 50px 50px;">
+  <mat-card fxLayout="column" fxFlex="1 1 50%" fxFlex.lt-sm="1 1 auto">
+    <mat-card-title>Register</mat-card-title>
+    <form fxLayout="column" [formGroup]="registerFormGroup" (ngSubmit)="submit(registerFormGroup)">
+      <mat-form-field>
+        <mat-placeholder>Username</mat-placeholder>
+        <!--<input type="text" matInput [formControl]="ufc">-->
+        <input type="text" matInput formControlName="username">
+        <mat-error *ngIf="registerFormGroup.get('username').errors && registerFormGroup.get('username').errors.required">Must not be empty</mat-error>
+        <mat-error *ngIf="registerFormGroup.get('username').errors && registerFormGroup.get('username').errors.minlength">Should be more than 3 characters</mat-error>
+      </mat-form-field>
+      <div fxLayout="column" formGroupName="passwordGroup">
+        <mat-form-field>
+          <mat-placeholder>Password</mat-placeholder>
+          <!--<input type="password" matInput [formControl]="pfc">-->
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-placeholder>Confirm Password</mat-placeholder>
+          <!--<input type="password" matInput [formControl]="cpfc">-->
+          <input type="password" matInput formControlName="confirmPassword">
+        </mat-form-field>
+        <mat-error *ngIf="registerFormGroup.get('passwordGroup').getError('passwordValidator')">Passwords does not match!</mat-error>
+      </div>
+      <p>
+        <button type="submit" mat-raised-button color="primary">Register</button>
+      </p>
+    </form>
+
+    <!--{{registerFormGroup.value | json}}-->
+  </mat-card>
+</div>

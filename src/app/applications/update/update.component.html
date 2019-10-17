@@ -1,0 +1,249 @@
+<!--<div fxLayout="row">
+  <div>
+    <app-app-side-nav></app-app-side-nav>
+  </div>
+  <div><router-outlet></router-outlet>
+  </div>
+</div>-->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+  <!-- step 1: client information-->
+  <mat-step [stepControl]="userInformationForm">
+    <div *ngIf="this.client || !this.id">
+      <form [formGroup]="userInformationForm">
+        <ng-template matStepLabel>Fill out client information</ng-template>
+        <mat-card class="form-card">
+          <mat-card-header>
+            <mat-card-title>General Information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field appearance="outline" >
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Middle Name</mat-label>
+              <input matInput formControlName="middleName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Sex</mat-label>
+              <mat-select placeholder="Sex" formControlName="sex" required>
+                <mat-option value="Female">Female</mat-option>
+                <mat-option value="Male">Male</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>Data of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>Marital Status</mat-label>
+              <mat-select placeholder="Marital Status" formControlName="marital" required>
+                <mat-option value="1">Single</mat-option>
+                <mat-option value="2">Married</mat-option>
+                <mat-option value="3">Divorced</mat-option>
+                <mat-option value="4">Windowed</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>Education Level</mat-label>
+              <mat-select placeholder="Education Level" formControlName="education" required>
+                <mat-option value="1">Less than a high school diploma</mat-option>
+                <mat-option value="2">College, no degree</mat-option>
+                <mat-option value="3">Professional certificate</mat-option>
+                <mat-option value="4">Associate degree</mat-option>
+                <mat-option value="5">Bachelor's degree</mat-option>
+                <mat-option value="6">Master's degree</mat-option>
+                <mat-option value="7">Doctoral degree</mat-option>
+                <mat-option value="8">Professional degree</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Occupation</mat-label>
+              <input matInput formControlName="occupation">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Address Line 1</mat-label>
+              <input matInput formControlName="address1" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Address Line 2</mat-label>
+              <input matInput formControlName="address2">
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="state" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Zip</mat-label>
+              <input matInput formControlName="zip" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Social Security Number</mat-label>
+              <input matInput formControlName="ssn" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Driver License Number</mat-label>
+              <input matInput formControlName="license" required>
+            </mat-form-field>
+
+            <!--
+                  <mat-form-field appearance="outline" required>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matSuffix>mail_outline</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" required>
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone">
+                    <mat-icon matSuffix>phone</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" required>
+                    <mat-label>Date</mat-label>
+                    <input matInput formControlName="date">
+                    <mat-icon matSuffix>date_range</mat-icon>
+                  </mat-form-field>-->
+            <div>
+              <button mat-raised-button color="primary" [disabled]="!userInformationForm.valid" matStepperNext>Next</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+    </div>
+  </mat-step>
+
+  <!-- step 2: car information -->
+  <mat-step [stepControl]="insuranceInformationForm" >
+    <form [formGroup]="insuranceInformationForm">
+      <ng-template matStepLabel>Fill out car information</ng-template>
+      <mat-card class="form-card">
+        <mat-card-header>
+          <mat-card-title>Insurance Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-label>VIN Number</mat-label>
+            <input matInput formControlName="vinNumber">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Garage Zip Code</mat-label>
+            <input matInput formControlName="garageZip">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Primary Use of Vehicle</mat-label>
+            <mat-select placeholder="Use of Vehicle" formControlName="primaryUse">
+              <mat-option value="Commuting">Commuting</mat-option>
+              <mat-option value="Business">Business</mat-option>
+              <mat-option value="Pleasure">Pleasure</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Year</mat-label>
+            <input matInput formControlName="year">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Makes</mat-label>
+            <input matInput formControlName="makes">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Models</mat-label>
+            <input matInput formControlName="models">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Body Styles</mat-label>
+            <input matInput formControlName="bodyStyle">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Total Residents</mat-label>
+            <input type="number" matInput formControlName="totalResidence">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Prev</button>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="policyForm">
+    <form [formGroup]="policyForm">
+      <ng-template matStepLabel>Check policy calculator</ng-template>
+      <mat-card class="form-card">
+        <mat-card-header>
+          <mat-card-title>Policy Calculator</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <mat-label>Types of insurance</mat-label>
+            <mat-checkbox formControlName="liability">Liability Coverage</mat-checkbox>
+            <mat-checkbox formControlName="collision">Collision Insurance</mat-checkbox>
+            <mat-checkbox formControlName="comprehensive">Comprehensive insurance</mat-checkbox>
+            <mat-checkbox formControlName="uninsured">Uninsured/Underinsured Moterist insurance</mat-checkbox>
+            <mat-checkbox formControlName="medical">Medical payments coverage</mat-checkbox>
+            <mat-checkbox formControlName="personal">personal injury protection insurance</mat-checkbox>
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="outline" required >
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Prev</button>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+          </div>
+        </mat-card-content>
+        <mat-card-content>
+          <div>
+            <p>Offer 1</p>
+          </div>
+          <div>
+            <p>Offer 2</p>
+          </div>
+          <div>Price: {{price}}</div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="renewForm" [optional]="true">
+    <form [formGroup]="renewForm">
+      <ng-template matStepLabel>Renew policy</ng-template>
+      <mat-card class="form-card">
+        <mat-card-header>
+          <mat-card-title>Insurance Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-label>Renew End Date</mat-label>
+            <input matInput [matDatepicker]="pickerNewEnd" formControlName="newEndDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerNewEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerNewEnd></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Prev</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
